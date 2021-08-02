@@ -16,36 +16,39 @@
         <h1>Weather Dashboard</h1>
     </header>
     <main>
-        <div class="h-25 flex-shrink-0 p-4 bg-white sidebar">
-            <h2 class="mb-4">Search for a City:</h2>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="City Name" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+        <div class="container-fluid">
+            <div class="row justify-content-between first">
+                <div class="h-10 col-2 flex-shrink-0 p-4 bg-white sidebar">
+                    <h2 class="mb-4">Search for a City:</h2>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="City Name"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                    </div>
+                </div>
+                <div class="card col-9">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Temp: <span id="temp"></span> °F</p>
+                        <p class="card-text">Wind: <span id="wind"></span> MPH</p>
+                        <p class="card-text">Humidity: <span id="humidity"></span> %</p>
+                    </div>
+                </div>
             </div>
-            <div class="h-75 d-flex flex-shrink-0 flex-column p-4 bg-white sidebar-saved">
-                <button class="btn btn-secondary my-1" type="button" id="city">Boston</button>
-                <button class="btn btn-secondary my-1" type="button" id="city">Boston</button>
-                <button class="btn btn-secondary my-1" type="button" id="city">Boston</button>
-                <button class="btn btn-secondary my-1" type="button" id="city">Boston</button>
-            </div>
-        </div>
-        <div class="container">
+            <div class="row">
+                <div class="h-90 col-2 d-flex flex-shrink-0 flex-column p-4 bg-white sidebar-saved">
 
+                </div>
+            </div>
         </div>
-                
     </main>
-
-
-
-
-
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 

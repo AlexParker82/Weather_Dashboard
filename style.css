@@ -1,7 +1,6 @@
-html {
-
+body {
+    box-sizing: border-box;
 }
-
 header {
     width: 100vw;
     text-align: center;
@@ -16,13 +15,25 @@ header h1 {
 
 div.sidebar{
     margin-left: 10px;
-    width: 325px;
+    
     margin-bottom: 20px;
 
 }
 
 div.sidebar-saved {
     border-top: solid lightgray 5px;
-    width: 325px;
     margin-top: 20px;
 }
+
+.card {
+    margin: 20px;
+}
+
+.hide {
+    display: none;
+
+}
+.show {
+    display: flex;
+}
+
