@@ -7,10 +7,9 @@ $(function () {
     const displayTemp$ = $('#temp');
     const displayWind$ = $('#wind');
     const displayHumidity$ = $('#humidity');
-    const userInput$ = $('.form-control');
+    const userInput$ = $('input');
     const newBtn$ = $('.btn-primary');
-    const storageArray$ = [];
-    const cityInfo$ = JSON.parse(localStorage.getItem('cityInfo'));
+    let storageArray = JSON.parse(localStorage.getItem('cityInfo'));;
 
     function getCurrentApi() {
         let userInput = userInput$.val();
@@ -22,7 +21,6 @@ $(function () {
             })
 
             .done(function (data) {
-                console.log(data.coord);
                 if (userInput === "") {
                     let alert = $('<h4>').addClass('alert');
                     alert.text('Enter a City!');
@@ -31,14 +29,13 @@ $(function () {
                 } else {
                     $('h4').remove('.alert');
                     let cityObj = {
-                        city: userInput,
+                        city: userInput.trim(),
                         lat: data.coord.lat,
                         lon: data.coord.lon
                     }
 
-                    storageArray$.push(cityObj);
-
-                    localStorage.setItem('cityInfo', JSON.stringify(storageArray$));
+                    storageArray.push(cityObj);
+                    localStorage.setItem('cityInfo', JSON.stringify(storageArray));
 
                     let date = moment.unix(data.dt).format("dddd, MMMM Do YYYY");
                     resultCard$.addClass('show');
@@ -54,22 +51,33 @@ $(function () {
 
     function RenderSavedBtns() {
 
-        console.log(cityInfo$);
-        let cityBtn = document.createElement('button');
-        cityBtn.className = "btn btn-secondary";
-        cityBtn.innerHTML = cityInfo$.city;
-        savedSideBar$.append(cityBtn);
+        console.log(storageArray);
+        if (!storageArray) {
+            return;
+        } else {
+            console.log(storageArray);
+            storageArray.forEach(function (item, index) {
+                let cityBtn = document.createElement('button');
+                cityBtn.className = "btn btn-secondary my-2";
+                cityBtn.innerHTML = storageArray[index].city;
+                savedSideBar$.append(cityBtn);
+
+            })
+        }
 
     }
-
-
 
     RenderSavedBtns();
 
     newBtn$.click(function () {
         getCurrentApi();
+        //RenderSavedBtns();
     })
 });
+
+
+
+
 
 
 
