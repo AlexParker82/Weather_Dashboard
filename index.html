@@ -21,12 +21,13 @@
                 <div class="h-10 col-2 flex-shrink-0 p-4 bg-white sidebar">
                     <h2 class="mb-4">Search for a City:</h2>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="City Name"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="City Name" aria-label="City Name"
+                            aria-describedby="button-addon2">
                         <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
                     </div>
                 </div>
                 <div class="card col-9 hide">
+                    <h2>Current Weather:</h2>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <h6 class="card-subtitle mb-2 text-muted"></h6>
@@ -36,12 +37,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
             <div class="row">
                 <div class="h-90 col-2 d-flex flex-shrink-0 flex-column p-4 bg-white sidebar-saved">
 
                 </div>
+                <div class="col-9 hide sevenDay flex-wrap">
+                    <h2 class="text-center">Seven Day Forcast:</h2>
+
+                </div>
             </div>
         </div>
+
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -53,3 +61,4 @@
 </body>
 
 </html>
+            

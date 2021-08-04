@@ -27,7 +27,11 @@ div.sidebar-saved {
 
 .card {
     margin: 20px;
+    background-color: navy;
+    color: white;
 }
+
+
 
 .hide {
     display: none;
