@@ -13,6 +13,7 @@ $(function () {
     const savedBtn$ = $('#savedBtn');
     let storageArray = JSON.parse(localStorage.getItem('cityInfo')) || [];
 
+//function to get weather data from the api and render it on the screen, and stores the search query in local storage
     function getCurrentApi() {
         let userInput = userInput$.val();
         let url = `http://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
@@ -54,7 +55,9 @@ $(function () {
 
             });
     };
-
+// made another function to access the extended forecast.  I could not find a way to search the api for forecast info using the city name, only the latitude and longitude.
+// I decided to try passing the lat and long data from the city search into the extended forecast search to access that data, and it kind of worked. Also renders the forecast cards 
+//dynamically
     function getSevenDay(lat, lon) {
         let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=a1d66d99e4fef075a52f8388265e5590`;
 
@@ -106,7 +109,7 @@ $(function () {
             });
 
     };
-
+//function to render the buttons for the saved user searches
     function RenderSavedBtns() {
         if (storageArray === null) {
             return;
