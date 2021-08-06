@@ -16,7 +16,7 @@ $(function () {
 //function to get weather data from the api and render it on the screen, and stores the search query in local storage
     function getCurrentApi() {
         let userInput = userInput$.val();
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
 
         $.get(url)
             .fail(function () {
