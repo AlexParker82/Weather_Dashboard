@@ -135,7 +135,7 @@ $(function () {
     savedSideBar$.on('click', savedBtn$, function (e) {
         e.stopPropagation();
         let city = $(e.target).text();
-        let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
         console.log(city);
 
         $.get(url)
