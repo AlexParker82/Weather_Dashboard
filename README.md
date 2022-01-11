@@ -13,7 +13,8 @@
   - [Questions](#questions)
 
 ## Description
-Full stack application for keeping track of financial transactions.  Uses an express server and back end connected to a MongoDB database to create and store transactions.  Uses IndexedDB and service workers to implement caching and offline funcionality
+Weather search application that uses HTML, CSS, Bootstrap and Javascript/JQuery to let users search for current and 7 day weather forecasts for any city worldwide.  Also saves
+searched cities in local storage to quickly access recently searched cities.
 
 ## Deployed URL
 https://alexparker82.github.io/Weather_Dashboard/
