@@ -16,7 +16,7 @@
 Full stack application for keeping track of financial transactions.  Uses an express server and back end connected to a MongoDB database to create and store transactions.  Uses IndexedDB and service workers to implement caching and offline funcionality
 
 ## Deployed URL
-### https://alexparker82.github.io/Weather_Dashboard/
+https://alexparker82.github.io/Weather_Dashboard/
 
 ## Usage
 Search by city name to get current and 7 day forecasts.
