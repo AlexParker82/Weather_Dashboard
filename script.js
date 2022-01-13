@@ -5,6 +5,7 @@ $(function () {
     const resultCard$ = $('.card');
     const cardTitle$ = $('.card-title')
     const cardSubtitle$ = $('.card-subtitle');
+    const weatherIcon$ = $('.weather-icon');
     const displayTemp$ = $('#temp');
     const displayWind$ = $('#wind');
     const displayHumidity$ = $('#humidity');
@@ -30,7 +31,7 @@ $(function () {
                     searchSideBar$.append(alert);
                     $('h4').remove('.alert');
                 } else {
-                    console.log(data, "CURRENT");
+                    let weatherIconCode = data.weather[0].icon;
                     $('h4').remove('.alert');
                     let cityObj = {
                         city: userInput,
@@ -47,6 +48,7 @@ $(function () {
                     resultCard$.addClass('show');
                     cardTitle$.text(data.name);
                     cardSubtitle$.text(date);
+                    weatherIcon$.attr("src", `http://openweathermap.org/img/w/${weatherIconCode}.png`);
                     displayTemp$.text(data.main.temp);
                     displayWind$.text(data.wind.speed);
                     displayHumidity$.text(data.main.humidity);
@@ -70,7 +72,6 @@ $(function () {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data.daily, "7DAY");
                 sevenDayDiv$.html("");
                 data.daily.forEach(function(item, index) {
                     let weatherIconCode = data.daily[index].weather[0].icon;
@@ -141,7 +142,6 @@ $(function () {
         e.stopPropagation();
         let city = $(e.target).text();
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&id=524901&appid=a1d66d99e4fef075a52f8388265e5590`;
-        console.log(city);
 
         $.get(url)
             .fail(function () {
@@ -149,12 +149,14 @@ $(function () {
             })
 
             .done(function (data) {
+                let weatherIconCode = data.weather[0].icon;
                 let date = moment.unix(data.dt).format('dddd, MMMM Do YYYY');
                 let lat = data.coord.lat;
                 let lon = data.coord.lon;
                 resultCard$.addClass('show');
                 cardTitle$.text(data.name);
                 cardSubtitle$.text(date);
+                weatherIcon$.attr("src", `http://openweathermap.org/img/w/${weatherIconCode}.png`);
                 displayTemp$.text(data.main.temp);
                 displayWind$.text(data.wind.speed);
                 displayHumidity$.text(data.main.humidity);
