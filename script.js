@@ -30,7 +30,7 @@ $(function () {
                     searchSideBar$.append(alert);
                     $('h4').remove('.alert');
                 } else {
-                    console.log(data);
+                    console.log(data, "CURRENT");
                     $('h4').remove('.alert');
                     let cityObj = {
                         city: userInput,
@@ -70,7 +70,10 @@ $(function () {
                 return response.json();
             })
             .then(function (data) {
-                data.daily.forEach(function(item, index,) {
+                console.log(data.daily, "7DAY");
+                sevenDayDiv$.html("");
+                data.daily.forEach(function(item, index) {
+                    let weatherIconCode = data.daily[index].weather[0].icon;
                     let date = moment.unix(data.daily[index].dt).format("dddd, MMMM Do YYYY");
                     sevenDayDiv$.addClass('show');
                     let dailyCard = document.createElement('div');
@@ -83,6 +86,8 @@ $(function () {
                     let subTitle = document.createElement('h6');
                     subTitle.className = 'card-subtitle mb-2';
                     subTitle.textContent = data.daily[index].weather[0].main;
+                    let weatherImage = document.createElement('img');
+                    weatherImage.setAttribute("src", `http://openweathermap.org/img/w/${weatherIconCode}.png`);
                     let temp = document.createElement('p');
                     temp.className = 'card-text';
                     temp.textContent = `Temp: ${data.daily[index].temp.day} °F`;
@@ -96,6 +101,7 @@ $(function () {
                     dailyCard.append(cardBody);
                     cardBody.append(cardTitle);
                     cardBody.appendChild(subTitle);
+                    cardBody.appendChild(weatherImage);
                     cardBody.appendChild(temp);
                     cardBody.appendChild(wind);
                     cardBody.appendChild(humidityVal);
@@ -114,7 +120,6 @@ $(function () {
         if (storageArray === null) {
             return;
         } else {
-            console.log(storageArray);
             storageArray.forEach(function (item, index) {
                 let cityBtn = document.createElement('button');
                 cityBtn.className = 'btn btn-secondary my-2';
