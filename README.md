@@ -14,7 +14,7 @@
 
 ## Description
 Weather search application that uses HTML, CSS, Bootstrap and Javascript/JQuery to let users search for current and 7 day weather forecasts for any city worldwide.  Also saves
-searched cities in local storage to quickly access recently searched cities.
+searched cities in local storage to quickly access recently searched cities. Uses the OpenWeatherMap API for fetching weather data.
 
 ## Deployed URL
 https://alexparker82.github.io/Weather_Dashboard/
